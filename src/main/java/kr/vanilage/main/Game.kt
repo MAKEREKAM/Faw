@@ -109,9 +109,15 @@ class Game : Listener {
         if (whiteConcrete != 0) return
         if (redConcrete == 0) {
             Bukkit.broadcast(Component.text("§1BLUE 승리"))
+            Bukkit.getScheduler().runTaskLater(Main.instance, Runnable {
+                Bukkit.shutdown()
+            }, 200)
         }
         if (blueConcrete == 0) {
             Bukkit.broadcast(Component.text("§cRED 승리"))
+            Bukkit.getScheduler().runTaskLater(Main.instance, Runnable {
+                Bukkit.shutdown()
+            }, 200)
         }
     }
 }
